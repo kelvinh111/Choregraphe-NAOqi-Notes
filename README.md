@@ -5,7 +5,8 @@ Global vars
 
 #### Box 1:
 ```python
-from naoqi import ALProxy
+# may need to import ALProxy manually
+# from naoqi import ALProxy
 
 alm = ALProxy('ALMemory')
 alm.insertData('my_var', 999)
@@ -23,7 +24,7 @@ self.log(my_var) #999
 Get project file path
 ---
 ```python
-onLoad
+# onLoad
 self.framemanager = ALProxy("ALFrameManager")
 
 # Notice the "..\" at the end
