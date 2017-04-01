@@ -6,7 +6,7 @@ Global vars
 #### Box 1:
 ```python
 # may need to import ALProxy manually
-# from naoqi import ALProxy
+from naoqi import ALProxy
 
 alm = ALProxy('ALMemory')
 alm.insertData('my_var', 999)
