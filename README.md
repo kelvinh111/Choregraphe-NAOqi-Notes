@@ -4,7 +4,7 @@ Global vars
 ---
 
 #### Box 1:
-```
+```python
 from naoqi import ALProxy
 
 alm = ALProxy('ALMemory')
@@ -12,7 +12,7 @@ alm.insertData('my_var', 999)
 ```
 
 #### Box 2:
-```
+```python
 alm = ALProxy('ALMemory')
 my_var = alm.getData('my_var')
 self.log(my_var) #999
@@ -22,7 +22,7 @@ self.log(my_var) #999
 
 Get project file path
 ---
-```
+```python
 onLoad
 self.framemanager = ALProxy("ALFrameManager")
 
@@ -38,7 +38,7 @@ Use external python file
 
 #### Box 1:
 
-```
+```python
 def onLoad(self):
     self.framemanager = ALProxy("ALFrameManager")
     #self.folderName = None
@@ -59,6 +59,6 @@ def onUnload(self):
 #### Box 2:
 Just import any python file. 
 i.e.  test.py at project root, then:
-```
+```python
 import test
 ```
