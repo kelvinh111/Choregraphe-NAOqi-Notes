@@ -26,7 +26,8 @@ Get project file path
 onLoad
 self.framemanager = ALProxy("ALFrameManager")
 
-self.framemanager.getBehaviorPath(self.behaviorId) + self.getParameter("File name")
+# Notice the "..\" at the end
+project_root_path = self.framemanager.getBehaviorPath(self.behaviorId) + "..\"
 ```
 
 ---
@@ -35,20 +36,24 @@ self.framemanager.getBehaviorPath(self.behaviorId) + self.getParameter("File nam
 Use external python file
 ---
 
-**Get project file path first (Above one).**
-
 #### Box 1:
 
 ```
-onInput_onStart
-import sys
-if self.folderName not in sys.path:
-    sys.path.insert(0, self.folderName)
+def onLoad(self):
+    self.framemanager = ALProxy("ALFrameManager")
+    #self.folderName = None
 
-onUnload
-import sys
-if self.folderName and self.folderName in sys.path:
-    sys.path.remove(self.folderName)
+def onInput_onStart(self):
+    self.folderName = self.framemanager.getBehaviorPath(self.behaviorId) + self.getParameter("File name")
+    import sys
+    if self.folderName not in sys.path:
+        sys.path.insert(0, self.folderName)
+    self.onStopped()
+
+def onUnload(self):
+    import sys
+    if self.folderName and self.folderName in sys.path:
+        sys.path.remove(self.folderName)
 ```
 
 #### Box 2:
